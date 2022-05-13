@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { MovieContext} from "./MovieContext";
+import { MovieContext } from "./MovieContext";
 
 const AddMovie = () => {
     const [name, setName] = useState('');
@@ -16,13 +16,17 @@ const AddMovie = () => {
 
     const addMovie = e => {
         e.preventDefault();
-        setMovies(prevMovies => [...prevMovies,{name: name, price:price } ])
+        setMovies(prevMovies => [...prevMovies, { name: name, price: price }])
     }
     return (
         <form onSubmit={addMovie}>
-            <input type="text" name="name" value={name} onChange={updateName} />
-            <input type="number" name="price" value={price} onChange={updatePrice} />
-            <button> Submit </button>
+            <div>
+            <input className="name" id="input1" type="text" placeholder="Name of the movie" name="name" value={name} onChange={updateName} /> <br/>
+            <input id="input2" type="number" placeholder="Price" name="price" value={price} onChange={updatePrice} />
+            </div>
+            <div>
+                <button className="btn" id="btn1"> Submit </button>
+            </div>
         </form>
     )
 }
